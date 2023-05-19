@@ -16,3 +16,7 @@ ORDER BY id;
 SELECT concat(first_name, ' ', last_name) AS 'Full Name',
     TIMESTAMPDIFF(DAY, born, died) AS 'Days Lived'
 FROM authors;
+-- 05. Harry Potter Books
+SELECT title
+FROM books
+WHERE title LIKE 'Harry Potter%';
