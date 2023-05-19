@@ -12,3 +12,7 @@ ORDER BY id;
 SELECT ROUND(SUM(cost), 2) as total_cost
 FROM books
 ORDER BY id;
+-- 04. Days Lived
+SELECT concat(first_name, ' ', last_name) AS 'Full Name',
+    TIMESTAMPDIFF(DAY, born, died) AS 'Days Lived'
+FROM authors;
