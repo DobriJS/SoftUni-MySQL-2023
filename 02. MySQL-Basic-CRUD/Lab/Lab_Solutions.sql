@@ -19,3 +19,30 @@ SET salary = salary + 100
 WHERE job_title = 'Manager';
 SELECT salary
 FROM employees;
+-- 04. Top Paid Employee
+-- 05. Select Employees by Multiple Filters
+SELECT id,
+    first_name,
+    last_name,
+    job_title,
+    department_id,
+    salary
+FROM employees
+WHERE (
+        salary = 1000
+        OR salary > 1000
+    )
+    AND (department_id = 4)
+ORDER BY id;
+-- 06. Delete from Table
+DELETE FROM employees
+WHERE department_id = 1
+    OR department_id = 2;
+SELECT id,
+    first_name,
+    last_name,
+    job_title,
+    department_id,
+    salary
+FROM employees
+ORDER BY id;
