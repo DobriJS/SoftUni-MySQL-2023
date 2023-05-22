@@ -70,3 +70,10 @@ FROM rivers AS r,
     peaks AS p
 WHERE UPPER(RIGHT(p.peak_name, 1)) = UPPER(LEFT(r.river_name, 1))
 ORDER BY mix;
+-- 12. Games From 2011 and 2012 Year
+SELECT `name`,
+    DATE_FORMAT(`start`, '%Y-%m-%d') AS `start`
+FROM `games`
+WHERE YEAR(`start`) IN (2011, 2012)
+ORDER BY `start`
+LIMIT 50;
