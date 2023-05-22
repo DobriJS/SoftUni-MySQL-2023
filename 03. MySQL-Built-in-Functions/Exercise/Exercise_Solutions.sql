@@ -77,3 +77,9 @@ FROM `games`
 WHERE YEAR(`start`) IN (2011, 2012)
 ORDER BY `start`
 LIMIT 50;
+-- 13. User Email Providers
+SELECT user_name,
+    SUBSTRING_INDEX(email, '@', -1) AS `email_provider`
+FROM users
+ORDER BY `email_provider`,
+    user_name;
