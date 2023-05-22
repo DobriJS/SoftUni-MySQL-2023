@@ -33,3 +33,8 @@ SELECT *
 FROM towns
 WHERE LOWER(LEFT(name, 1)) IN ('m', 'k', 'b', 'e')
 ORDER BY name ASC;
+-- 7. Find Towns Not Starting With
+SELECT *
+FROM towns
+WHERE name REGEXP '^[^RrBbDd]'
+ORDER BY name ASC;
