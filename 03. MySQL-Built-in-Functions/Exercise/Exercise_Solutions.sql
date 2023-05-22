@@ -28,3 +28,8 @@ FROM towns
 WHERE LENGTH(`name`) = 5
     OR LENGTH(`name`) = 6
 ORDER BY `name` ASC;
+-- 6. Find Towns Starting With
+SELECT *
+FROM towns
+WHERE LOWER(LEFT(name, 1)) IN ('m', 'k', 'b', 'e')
+ORDER BY name ASC;
