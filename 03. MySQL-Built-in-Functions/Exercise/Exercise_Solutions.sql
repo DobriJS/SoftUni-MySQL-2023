@@ -57,3 +57,16 @@ WHERE (
         CHAR_LENGTH(country_name) - CHAR_LENGTH(REPLACE(LOWER(country_name), 'a', ''))
     ) >= 3
 ORDER BY iso_code;
+-- 11. Mix of Peak and River Names
+SELECT p.peak_name,
+    r.river_name,
+    LOWER(
+        CONCAT(
+            LEFT(p.peak_name, LENGTH(p.peak_name) - 1),
+            r.river_name
+        )
+    ) AS mix
+FROM rivers AS r,
+    peaks AS p
+WHERE UPPER(RIGHT(p.peak_name, 1)) = UPPER(LEFT(r.river_name, 1))
+ORDER BY mix;
