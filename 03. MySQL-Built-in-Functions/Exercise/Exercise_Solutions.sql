@@ -89,3 +89,18 @@ SELECT user_name,
 FROM users
 WHERE ip_address LIKE '___.1%.%.___'
 ORDER BY user_name;
+-- 15 . Show All Games with Duration
+SELECT name AS games,
+    CASE
+        WHEN HOUR(start) BETWEEN 0 AND 11 THEN 'Morning'
+        WHEN HOUR(start) BETWEEN 12 AND 17 THEN 'Afternoon'
+        ELSE 'Evening'
+    END AS 'Part of the day',
+    CASE
+        WHEN duration <= 3 THEN 'Extra Short'
+        WHEN duration BETWEEN 4 AND 6 THEN 'Short'
+        WHEN duration BETWEEN 7 AND 10 THEN 'Long'
+        ELSE 'Extra Long'
+    END AS 'Duration'
+FROM games
+ORDER BY name;
