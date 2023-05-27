@@ -66,8 +66,8 @@ VALUES ('Mila'),
     ('Ron');
 INSERT INTO exams (name)
 VALUES ('Spring MVC'),
-('Neo4j'),
-('Oracle 11g');
+    ('Neo4j'),
+    ('Oracle 11g');
 INSERT INTO students_exams
 VALUES (1, 101),
     (1, 102),
@@ -75,3 +75,17 @@ VALUES (1, 101),
     (3, 103),
     (2, 102),
     (2, 103);
+-- 4. Self-Referencing
+CREATE TABLE teachers (
+    teacher_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES teachers(teacher_id)
+);
+INSERT INTO teachers (teacher_id, name, manager_id)
+VALUES (101, 'John', NULL),
+    (106, 'Greta', 101),
+    (105, 'Mark', 101),
+    (104, 'Ted', 105),
+    (102, 'Maya', 106),
+    (103, 'Silvia', 106);
