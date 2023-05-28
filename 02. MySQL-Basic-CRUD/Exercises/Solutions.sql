@@ -48,3 +48,8 @@ WHERE salary = 25000
     OR salary = 14000
     OR salary = 12500
     OR salary = 23600;
+-- 10 Find All Employees Without Manager
+SELECT first_name,
+    last_name
+FROM employees
+WHERE manager_id IS NULL;
