@@ -26,3 +26,6 @@ SELECT CONCAT(
         '@softuni.bg'
     ) AS full_email_address
 FROM employees;
+-- 6. Find All Different Employee’s Salaries
+SELECT DISTINCT salary
+FROM employees;
