@@ -18,3 +18,11 @@ SELECT first_name,
     last_name
 FROM employees
 ORDER BY employee_id;
+-- 5. Find Email Address of Each
+SELECT CONCAT(
+        first_name,
+        '.',
+        last_name,
+        '@softuni.bg'
+    ) AS full_email_address
+FROM employees;
