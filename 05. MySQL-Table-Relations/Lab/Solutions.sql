@@ -16,3 +16,14 @@ SELECT driver_id,
     CONCAT(first_name, ' ', last_name) AS 'driver_name'
 FROM vehicles
     JOIN campers ON driver_id = campers.id;
+-- 4 Delete Mountains
+CREATE TABLE mountains(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
+);
+CREATE TABLE peaks(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    mountain_id INT,
+    CONSTRAINT fk_mountain_id FOREIGN KEY(mountain_id) REFERENCES mountains(id) ON DELETE CASCADE
+);
