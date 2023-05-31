@@ -89,7 +89,7 @@ VALUES (101, 'John', NULL),
     (104, 'Ted', 105),
     (102, 'Maya', 106),
     (103, 'Silvia', 106);
--- 5
+-- 5 Online Store Database
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50),
@@ -97,7 +97,6 @@ CREATE TABLE customers (
     city_id INT,
     CONSTRAINT fk_customers_cities FOREIGN KEY (city_id) REFERENCES cities(city_id)
 );
--- 5. Online Store Database
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
