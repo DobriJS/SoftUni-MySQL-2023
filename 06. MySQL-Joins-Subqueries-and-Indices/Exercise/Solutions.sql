@@ -18,3 +18,12 @@ FROM employees AS e
 ORDER BY e.first_name,
     e.last_name
 LIMIT 5;
+-- 3. Sales Employee
+SELECT employee_id,
+    first_name,
+    last_name,
+    d.name AS `department_name`
+FROM employees AS e
+    JOIN departments AS d ON e.department_id = d.department_id
+WHERE d.name = 'Sales'
+ORDER BY employee_id DESC;
