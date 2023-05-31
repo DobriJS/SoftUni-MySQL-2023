@@ -90,6 +90,10 @@ VALUES (101, 'John', NULL),
     (102, 'Maya', 106),
     (103, 'Silvia', 106);
 -- 5 Online Store Database
+CREATE TABLE cities (
+    city_id INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50)
+);
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50),
