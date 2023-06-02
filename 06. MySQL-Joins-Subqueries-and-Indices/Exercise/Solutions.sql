@@ -76,6 +76,15 @@ FROM employees AS e
     JOIN projects AS p ON ep.project_id = p.project_id
 WHERE e.employee_id = 24
 ORDER BY p.name;
+-- 9. Employee Manager
+SELECT e.employee_id,
+    e.first_name,
+    e.manager_id,
+    m.first_name AS manager_name
+FROM employees AS e
+    INNER JOIN employees AS m ON e.manager_id = m.employee_id
+WHERE e.manager_id IN (3, 7)
+ORDER BY e.first_name ASC;
 -- 10. Employee Summary
 SELECT e.employee_id,
     CONCAT_WS(' ', e.first_name, e.last_name) AS employee_name,
