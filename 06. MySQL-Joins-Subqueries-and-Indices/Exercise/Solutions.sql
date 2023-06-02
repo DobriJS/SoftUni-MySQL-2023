@@ -101,3 +101,15 @@ FROM employees AS e
 GROUP BY e.department_id
 ORDER BY avg_salary
 LIMIT 1;
+-- 12. Highest Peaks in Bulgaria
+SELECT c.country_code,
+    m.mountain_range,
+    p.peak_name,
+    p.elevation
+FROM countries AS c
+    JOIN mountains_countries AS mc ON c.country_code = mc.country_code
+    JOIN mountains AS m ON m.id = mc.mountain_id
+    JOIN peaks AS p ON m.id = p.mountain_id
+WHERE c.country_name = 'Bulgaria'
+    AND p.elevation > 2835
+ORDER BY p.elevation DESC;
