@@ -95,3 +95,9 @@ FROM employees AS e
     JOIN departments AS d ON e.department_id = d.department_id
 ORDER BY e.employee_id
 LIMIT 5;
+-- 11. Min Average Salary
+SELECT AVG(e.salary) AS avg_salary
+FROM employees AS e
+GROUP BY e.department_id
+ORDER BY avg_salary
+LIMIT 1;
