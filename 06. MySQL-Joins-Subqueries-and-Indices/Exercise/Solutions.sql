@@ -113,3 +113,11 @@ FROM countries AS c
 WHERE c.country_name = 'Bulgaria'
     AND p.elevation > 2835
 ORDER BY p.elevation DESC;
+-- 13. Count Mountain Ranges
+SELECT c.country_code,
+    COUNT(mc.mountain_id) AS mountain_range_count
+FROM countries AS c
+    JOIN mountains_countries AS mc ON c.country_code = mc.country_code
+GROUP BY c.country_code
+HAVING c.country_code IN ('BG', 'US', 'RU')
+ORDER BY mountain_range_count DESC;
