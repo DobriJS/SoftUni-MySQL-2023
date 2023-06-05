@@ -18,3 +18,10 @@ ORDER BY first_name,
     last_name,
     employee_id;
 END $$ DELIMITER;
+-- 3. Town Names Starting With
+DELIMITER $$ CREATE PROCEDURE usp_get_towns_starting_with(name_starts_with VARCHAR(50)) BEGIN
+SELECT name
+FROM towns
+WHERE name LIKE CONCAT(name_starts_with, '%')
+ORDER BY name;
+END $$ DELIMITER;
