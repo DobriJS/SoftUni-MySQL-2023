@@ -68,3 +68,9 @@ ORDER BY first_name DESC,
 END $$ DELIMITER;
 -- 7. Define Function
 CREATE FUNCTION ufn_is_word_comprised(set_of_letters VARCHAR(50), word VARCHAR(50)) RETURNS INT RETURN word REGEXP (concat('^[', set_of_letters, ']+$'));
+-- 10. Future Value Function
+CREATE FUNCTION ufn_calculate_future_value(
+    initial_sum DECIMAL(19, 4),
+    interest_rate_per_year DECIMAL(19, 4),
+    number_of_years INT
+) RETURNS DECIMAL(19, 4) RETURN initial_sum * POW((1 + interest_rate_per_year), number_of_years);
