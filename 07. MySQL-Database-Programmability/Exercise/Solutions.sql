@@ -37,3 +37,11 @@ ORDER BY e.first_name,
     e.last_name,
     e.employee_id;
 END $$ DELIMITER;
+-- 5. Salary Level Function
+CREATE FUNCTION ufn_get_salary_level(salary DECIMAL(19.4)) RETURNS VARCHAR(7) RETURN (
+    CASE
+        WHEN salary < 30000 THEN 'Low'
+        WHEN salary <= 50000 THEN 'Average'
+        ELSE 'High'
+    END
+);
