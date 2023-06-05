@@ -45,3 +45,24 @@ CREATE FUNCTION ufn_get_salary_level(salary DECIMAL(19.4)) RETURNS VARCHAR(7) RE
         ELSE 'High'
     END
 );
+-- 6. Employees by Salary Level
+DELIMITER $$ CREATE PROCEDURE usp_get_employees_by_salary_level(salary_level VARCHAR(7)) BEGIN
+SELECT first_name,
+    last_name
+FROM employees
+WHERE (
+        salary < 30000
+        AND salary_level = 'Low'
+    )
+    OR (
+        salary >= 30000
+        AND salary <= 50000
+        AND salary_level = 'Avarage'
+    )
+    OR (
+        salary > 50000
+        AND salary_level = 'High'
+    )
+ORDER BY first_name DESC,
+    last_name DESC;
+END $$ DELIMITER;
