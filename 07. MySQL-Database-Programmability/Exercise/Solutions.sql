@@ -84,3 +84,20 @@ CREATE FUNCTION ufn_calculate_future_value(
     interest_rate_per_year DECIMAL(19, 4),
     number_of_years INT
 ) RETURNS DECIMAL(19, 4) RETURN initial_sum * POW((1 + interest_rate_per_year), number_of_years);
+-- 12. Deposit Money
+DELIMITER $$ CREATE PROCEDURE usp_deposit_money(
+    account_id INT,
+    money_amount DECIMAL(19, 4)
+) BEGIN IF money_amount > 0 THEN START TRANSACTION;
+UPDATE `accounts` AS a
+SET a.balance = a.balance + money_amount
+WHERE a.id = account_id;
+IF (
+    SELECT a.balance
+    FROM `accounts` AS a
+    WHERE a.id = account_id
+) < 0 THEN ROLLBACK;
+ELSE COMMIT;
+END IF;
+END IF;
+END $$ DELIMITER;
