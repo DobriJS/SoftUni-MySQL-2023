@@ -11,6 +11,14 @@ SELECT department_id,
 FROM employees
 GROUP BY department_id
 ORDER BY department_id;
+-- 3. Minimum Salary
+SELECT department_id,
+    ROUND(MIN(salary), 2) AS 'Min Salary'
+FROM employees
+WHERE salary > 800
+    AND department_id IS NOT NULL
+GROUP BY department_id
+LIMIT 1;
 -- 4. Appetizers Count
 SELECT COUNT(category_id)
 FROM products
