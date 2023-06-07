@@ -10,7 +10,7 @@ LIMIT 5;
 -- 2. Addresses with Towns
 SELECT e.first_name,
     e.last_name,
-    t.name AS name,
+    t.name AS `town`,
     a.address_text
 FROM employees AS e
     JOIN addresses AS a ON e.address_id = a.address_id
