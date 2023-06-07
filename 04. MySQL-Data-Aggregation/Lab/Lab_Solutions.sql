@@ -11,3 +11,8 @@ SELECT department_id,
 FROM employees
 GROUP BY department_id
 ORDER BY department_id;
+-- 4. Appetizers Count
+SELECT COUNT(category_id)
+FROM products
+WHERE price > 8
+    AND category_id = 2;
