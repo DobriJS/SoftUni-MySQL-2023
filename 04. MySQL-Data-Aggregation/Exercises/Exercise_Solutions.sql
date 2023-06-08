@@ -87,3 +87,18 @@ WHERE hire_date > '2000-01-01'
 GROUP BY department_id
 HAVING department_id IN (2, 5, 7)
 ORDER BY department_id;
+-- 13. Employees Average Salaries
+CREATE TABLE `salary_more_than_30000` AS
+SELECT *
+FROM employees
+WHERE salary > 30000;
+DELETE FROM `salary_more_than_30000`
+WHERE manager_id = 42;
+UPDATE `salary_more_than_30000`
+SET salary = salary + 5000
+WHERE department_id = 1;
+SELECT department_id,
+    AVG(salary) AS 'avg_salary'
+FROM `salary_more_than_30000`
+GROUP BY department_id
+ORDER BY department_id;
